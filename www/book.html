@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <title>Login</title>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <script>  
+    $(document).ready(function () {  
+        var id = GetParameterValues('id');  
+		var way = GetParameterValues('way');  
+        $('#tid').val(id);
+		$('#way').val(way);
+        function GetParameterValues(param) {  
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');  
+            for (var i = 0; i < url.length; i++) {  
+                var urlparam = url[i].split('=');  
+                if (urlparam[0] == param) {  
+                    return urlparam[1];  
+                }  
+            }  
+        }  
+    });  
+</script>  
+<script>
+  $(document).ready(function(){
+    document.addEventListener("deviceready", function(){
+        StatusBar.hide();
+    }, false);
+});
+  </script>
+</head>
+<body>
+
+
+	<div class="bar bar-header bar-balanced">
+	<a onclick="toggle_sidebar()" class="button button-clear"><i class="icon ion-android-list"></i></a>
+	<h1 class="title">Book Airport Taxi</h1>
+	<a href="offer.html" class="button button-clear"><i class="icon ion-android-notifications"></i></a>
+    </div>
+
+
+        <div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 300px; left: -300px; background-color: #fff; transition: all 0.5s ease-in-out;z-index:9999999;color:#333333;padding:20px;">
+            <p><a onClick="closethis()" class="button button-clear button-royal title"><i class="ion-close"></i> Close</a></p>
+			
+			<p><img src="img/logo-pola.png"></p>
+			
+			<ul style="text-decoration:none;color:#333333;font-size:16px;line-height:40px;font-weight:500">
+			<li><a href="index.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-car"></i> Book Taxi</a></li>
+			<li><a href="offer.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-notifications"></i> Offers</a></li>
+			<li><a href="contact.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-contact"></i> Help & Support</a></li>
+			<li><a href="terms.html" style="text-decoration:none;color:#666666;"><i class="icon icon ion-settings"></i> Terms & Conditions</a></li>
+			</ul>
+			
+        </div>
+		
+		
+		
+   <div style="padding:20px;z-index:999999;margin-top:50px;">
+	<div class="fh5co-heading" style="text-align:center">
+					<h2><span>Book your Taxi</span></h2>
+				</div>
+				
+			<input type="hidden" placeholder="id" id="tid">	
+			<input type="hidden" placeholder="id" id="way">	
+	
+        <label class="item item-input">
+          <input type="text" placeholder="Full Name" id="name">
+            
+        </label>
+		
+		<label class="item item-input">
+            <input type="number" placeholder="10 Digit Mobile No" id="mobile">
+        </label>
+		
+		
+		<label class="item item-input">
+            <input type="email" placeholder="eMail Address" id="email">
+        </label>
+		
+		<label class="item item-input">
+            <input type="text" placeholder="Complete Address" id="address">
+        </label>
+		
+		<label class="item item-input">
+            <input type="text" placeholder="Nearest Landmark" id="landmark">
+        </label>
+		
+		<script>
+		$(document).ready(function()
+		 {
+		 if(localStorage.group1=='1')
+		 {
+		 $("#address").attr("placeholder", "Complete Pickup Address");
+		 }
+		 else
+		 {
+		 $("#address").attr("placeholder", "Complete Drop Address");
+		 }
+		 });
+		</script>
+		
+		<label class = "item item-input item-select">
+   <div class = "input-label">
+      Select Date
+   </div>
+	
+   <input type="date" placeholder="Nearest Landmark" id="date" name="date">
+</label>
+		
+		<label class = "item item-input item-select">
+   <div class = "input-label">
+      Select Time
+   </div>
+	
+   <select id="pulldown"></select>
+</label>
+		
+		
+<script>
+function GenTimePullDown(MinuteInterval) {
+    var o, n, i, g, r, S, l;
+    o = "<option value='00:00'>12:00 AM</option>", n = 0, i = 0, r = 0, S = 0, g = 0, l = "AM";
+    for (var e = 1; e < 60 / MinuteInterval * 24; e++) 60 == (i += MinuteInterval) && (g = n += 1, n >= 12 && (l = "PM"), i = 0), r = n > 12 ? n - 12 : n, 0 == n && (r = 12), 1 == n.toString().length && (g = "0" + n.toString(), g = "0" + n.toString()), 1 == r.toString().length && (r = "0" + r.toString()), S = 1 == i.toString().length ? "0" + i.toString() : i, o = o + "\n<option value='" + (g.toString() + ":" + S.toString()) + "' >" + (r.toString() + ":" + S.toString() + " " + l) + "</option>";
+    return o;
+}
+
+document.getElementById("pulldown").innerHTML = GenTimePullDown(15);
+</script>					
+						
+        <label class="item-input">
+            <button class="button button-block button-assertive" id="book">Book</button>
+        </label>
+    </div>
+	
+	
+	<div class="bar bar-footer bar-stable">
+<a href="index.html" class="button button-clear title"><i class="icon ion-home"></i> Home</a>
+<a href="contact.html" class="button button-clear"><i class="icon ion-ios-telephone"></i> Support</a>
+<a href="terms.html" class="button button-clear"><i class="icon ion-settings"></i> Terms</a>
+</div>
+
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <title>Bangalore Airport Taxi Booking App</title>
+	<script type="text/javascript" src='http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBGdGyO-9SI_OvNS0d3fgRWp2blyN0TMCU'></script>
+    <script type="text/javascript">
+        google.maps.event.addDomListener(window, 'load', function () {
+            var places = new google.maps.places.Autocomplete(document.getElementById('address'));
+            google.maps.event.addListener(places, 'place_changed', function () {
+                var place = places.getPlace();
+                var address = place.formatted_address;
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+                var mesg = "Address: " + address;
+                mesg += "\nLatitude: " + latitude;
+                mesg += "\nLongitude: " + longitude;
+                document.getElementById("lat").value = latitude;
+				document.getElementById("lon").value = longitude;
+            });
+        });
+    </script>
+	
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    
+	<script>
+  $(document).ready(function(){
+    document.addEventListener("deviceready", function(){
+        StatusBar.hide();
+    }, false);
+});
+
+
+  </script>
+</head>
+<body>
+
+
+	<div class="bar bar-header bar-balanced">
+	<a onclick="toggle_sidebar()" class="button button-clear"><i class="icon ion-android-list"></i></a>
+	<h1 class="title">Book Airport Taxi</h1>
+	<a href="offer.html" class="button button-clear"><i class="icon ion-android-notifications"></i></a>
+    </div>
+
+
+        <div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 300px; left: -300px; background-color: #fff; transition: all 0.5s ease-in-out;z-index:9999999;color:#333333;padding:20px;">
+            <p><a onClick="closethis()" class="button button-clear button-royal title"><i class="ion-close"></i> Close</a></p>
+			
+			<p><img src="img/logo-pola.png"></p>
+			
+			<ul style="text-decoration:none;color:#333333;font-size:16px;line-height:40px;font-weight:500">
+			<li><a href="index.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-car"></i> Book Taxi</a></li>
+			<li><a href="offer.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-notifications"></i> Offers</a></li>
+			<li><a href="contact.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-contact"></i> Help & Support</a></li>
+			<li><a href="terms.html" style="text-decoration:none;color:#666666;"><i class="icon icon ion-settings"></i> Terms & Conditions</a></li>
+			</ul>
+			
+        </div>
+		
+		
+	<img src="img/main.jpg" style="width:100%;margin-top:50px;">
+   <div style="padding:20px;z-index:999999;text-align:center">
+	<div class="fh5co-heading">
+					<h2><span><i class="icon ion-stats-bars"></i> Book in 3  Easy Steps</span></h2>
+				</div>
+	
+				<div id="search_div">
+			
+				
+				
+				<div class = "list" style="text-align:left">
+   <label class = "item item-radio">
+      <input type = "radio" name = "group1" id = "group1" value="1" />
+      <div class = "item-content">
+         Taxi from City to Airport
+      </div>
+      <i class = "radio-icon ion-checkmark"></i>
+   </label>
+
+   <label class = "item item-radio">
+      <input type = "radio" name = "group1" id = "group2" value="2" />
+      <div class = "item-content">
+        Taxi from Airport to City
+      </div>
+      <i class = "radio-icon ion-checkmark"></i>
+   </label>
+
+</div>
+
+<script>
+	$(function() {					
+	$("#group1").change(function(){ // bind a function to the change event
+        if( $(this).is(":checked") ){ // check if the radio is checked
+            var val = $(this).val(); // retrieve the value
+			if(val=="1")
+			{
+			$("#address").attr("placeholder", "Your Pickup Area / Location");
+			}
+        }
+    });
+	
+	$("#group2").change(function(){ // bind a function to the change event
+        if( $(this).is(":checked") ){ // check if the radio is checked
+            var val = $(this).val(); // retrieve the value
+			if(val=="2")
+			{
+			$("#address").attr("placeholder", "Your Drop Area / Location");
+			}
+        }
+    });
+						  });
+						</script>
+			<label class="item item-input">
+			<input type="text" class="form-control" name="address" id="address"  placeholder="Enter Your Area / Location">
+			</label>
+			
+			 <input type="hidden" class="form-control" name="lat"  id="lat">
+			<input type="hidden" class="form-control" name="lon"  id="lon">
+            <button type="submit" class="button button-block button-assertive" id="search">Search Airport Taxi</button>
+         
+	
+
+	       <div class = "row">
+   <div class = "col calm" style="background-color:#fff;color:#000000;margin:2px;"><i class="icon ion-home"></i> No Hidden Charges</div>
+   <div class = "col calm" style="background-color:#fff;color:#000000;margin:2px;"><i class="icon ion-home"></i> Verified Drivers </div>
+</div>
+		</div>
+	
+		
+		
+					
+						
+        
+    </div>
+	
+	
+	<div class="bar bar-footer bar-stable">
+<a href="index.html" class="button button-clear title"><i class="icon ion-home"></i> Home</a>
+<a href="contact.html" class="button button-clear"><i class="icon ion-ios-telephone"></i> Support</a>
+<a href="terms.html" class="button button-clear"><i class="icon ion-settings"></i> Terms</a>
+</div>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

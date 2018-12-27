@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <title>Bangalore Airport Taxi Booking App</title>
+	
+	
+	
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <style>
+  
+  .card{
+  position: relative;
+  max-width: 300px;
+  background: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  height:260px;
+  margin-bottom:50px;
+}
+
+.title_car h2 {
+  position: relative;
+  margin: 10px  0 0;
+  padding: 0;
+  color: #666;
+  font-size: 22px;
+  z-index: 2;
+  margin-bottom:0px;
+}
+.price,.option{
+  position: relative;
+  z-index: 2;
+}
+.price h4 {
+margin: 0;
+padding: 20px 0 ;
+color: #000;
+font-size: 40px;
+}
+.option ul {
+  margin: 0;
+  padding: 0;
+
+}
+.option ul li {
+margin: 0 0 10px;
+padding: 0;
+list-style: none;
+color: #666;
+font-size: 16px;
+}
+.card a {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  color : black;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 40px;
+  display: block;
+  text-align: center;
+  margin: 20px auto 0 ;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  text-decoration:none;		  
+
+}
+.card a:hover{
+    text-decoration: none;
+}
+
+#loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  </style>	
+    
+	<script>
+  $(document).ready(function(){
+    document.addEventListener("deviceready", function(){
+        StatusBar.hide();
+    }, false);
+});
+  </script>
+</head>
+<body>
+
+
+	<div class="bar bar-header bar-balanced">
+	<a onclick="toggle_sidebar()" class="button button-clear"><i class="icon ion-android-list"></i></a>
+	<h1 class="title">Book Airport Taxi</h1>
+	<a href="offer.html" class="button button-clear"><i class="icon ion-android-notifications"></i></a>
+    </div>
+
+
+        <div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 300px; left: -300px; background-color: #fff; transition: all 0.5s ease-in-out;z-index:9999999;color:#333333;padding:20px;">
+            <p><a onClick="closethis()" class="button button-clear button-royal title"><i class="ion-close"></i> Close</a></p>
+			
+			<p><img src="img/logo-pola.png"></p>
+			
+			<ul style="text-decoration:none;color:#333333;font-size:16px;line-height:40px;font-weight:500">
+			<li><a href="index.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-car"></i> Book Taxi</a></li>
+			<li><a href="offer.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-notifications"></i> Offers</a></li>
+			<li><a href="contact.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-contact"></i> Help & Support</a></li>
+			<li><a href="terms.html" style="text-decoration:none;color:#666666;"><i class="icon icon ion-settings"></i> Terms & Conditions</a></li>
+			</ul>
+			
+        </div>
+	
+   <div style="padding:20px;z-index:999999;text-align:center;margin-top:50px;">
+	<div class="fh5co-heading">
+					<h2><span>Select Your Taxi</span></h2>
+				</div>
+	<p>Taxi from Airport to anywhere in Bangalore upto 45Km from 3AM to 3PM at just Rs.599/-</p>
+				
+				
+				
+			
+				
+			
+			
+			
+            <script type="text/javascript">
+ $(document).ready(function()
+ {
+ var search_url="https://www.webkraze.in/design/phonegap/search1.php?callback=?";
+ var lat=localStorage.lat;
+ var lon=localStorage.lon;
+ var group1=localStorage.group1;
+
+ 
+ var dataString="lat="+lat+"&lon="+lon+"&group1="+group1+"&search=";
+ 
+ $.ajax({
+				type: "POST",
+				url: search_url,
+				data: dataString,
+				crossDomain: true,
+				cache: false,
+				beforeSend: function()
+				{ 
+				$("#loader").show();
+				},
+				success: function(data)
+				{
+				$("#loader").hide();
+				data = $.parseJSON(data);
+				var trHTML = '';
+        $.each(data, function (i, item) {
+            trHTML += '<div class=card text-center><div class=title_car><h2>'+item.CT_Name+'</h2></div><div class=price><h4><sup>&#8377;</sup>'+item.Total+'</h4></div><div class=option><ul><li> Capacity: '+item.CT_Capacity+'</li><li> <i class=icon ion-pricetag></i> Toll 85.00/- </li></ul></div><a href=book.html?id='+item.id+'&way='+group1+'>Book Now</a></div>';
+        });
+        $('#listview').append(trHTML);
+				
+				}
+			});
+			
+			
+		
+ });
+ </script>
+ 
+
+         
+<div id="loader" style="display:none"></div>		 
+		 
+ <div class="list" id="listview"></div>
+					
+        
+    </div>
+	
+	
+	<div class="bar bar-footer bar-stable">
+<a href="index.html" class="button button-clear title"><i class="icon ion-home"></i> Home</a>
+<a href="contact.html" class="button button-clear"><i class="icon ion-ios-telephone"></i> Support</a>
+<a href="terms.html" class="button button-clear"><i class="icon ion-settings"></i> Terms</a>
+</div>
+    
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

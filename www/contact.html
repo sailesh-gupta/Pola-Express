@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <title>Bangalore Airport Taxi Booking App</title>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  
+  
+  <script>
+  $(document).ready(function(){
+    document.addEventListener("deviceready", function(){
+        StatusBar.hide();
+    }, false);
+});
+  </script>
+  
+</head>
+<body>
+
+	
+	<div class="bar bar-header bar-balanced">
+	<a onclick="toggle_sidebar()" class="button button-clear"><i class="icon ion-android-list"></i></a>
+	<h1 class="title">Book Airport Taxi</h1>
+	<a href="offer.html" class="button button-clear"><i class="icon ion-android-notifications"></i></a>
+    </div>
+
+
+        <div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 300px; left: -300px; background-color: #fff; transition: all 0.5s ease-in-out;z-index:9999999;color:#333333;padding:20px;">
+            <p><a onClick="closethis()" class="button button-clear button-royal title"><i class="ion-close"></i> Close</a></p>
+			
+			<p><img src="img/logo-pola.png"></p>
+			
+			<ul style="text-decoration:none;color:#333333;font-size:16px;line-height:40px;font-weight:500">
+			<li><a href="index.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-car"></i> Book Taxi</a></li>
+			<li><a href="offer.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-notifications"></i> Offers</a></li>
+			<li><a href="contact.html" style="text-decoration:none;color:#666666;"><i class="icon ion-android-contact"></i> Help & Support</a></li>
+			<li><a href="terms.html" style="text-decoration:none;color:#666666;"><i class="icon icon ion-settings"></i> Terms & Conditions</a></li>
+			</ul>
+			
+        </div>
+	
+	 <div style="padding:20px;z-index:999999;text-align:center;margin-top:50px;">
+	 <img src="img/contact.png">
+	<p>&nbsp;</p>
+	<h2>POLA Car Rentals Pvt Ltd</h2>
+	<div class = "card list">
+   <div class = "item item-divider">
+    24X7 Support
+   </div>
+   <div class = "item item-text-wrap">
+     080 4500 0000 / +91-99 004 43311
+   </div>
+</div>
+
+<div class = "card list">
+   <div class = "item item-divider">
+    Send an eMail
+   </div>
+   <div class = "item item-text-wrap">
+     booking@airporttaxibangalore.co.in
+   </div>
+</div>
+
+<p>No 720 , 1st Floor, 11th Cross, 16th Main, BTM 2nd Stage
+Behind Mico Layout Police Staion, Bangalore - 560076</p>
+	</div>
+	
+
+<div class="bar bar-footer bar-stable">
+<a onClick="goBack()" class="button button-clear button-royal title"><i class="icon ion-android-arrow-back"></i> Back</a>
+</div>
+    <script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

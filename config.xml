@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.tt.tt" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Pola Expree</name>
+    <description>
+       Bangalore Airport Taxi Booking App
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+	<preference name="Fullscreen" value="true" />
+	<preference name="SplashScreen" value="screen"/>
+	<preference name="FadeSplashScreenDuration" value="5000"/> 
+	<preference name="SplashScreenDelay" value="5000" />
+	<preference name="AutoHideSplashScreen" value="true"/>
+	<preference name="SplashShowOnlyFirstTime" value="false"/>
+	<preference name="FadeSplashScreen" value="false" /> 
+	<preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
+    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
+	<plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
+	<plugin name="cordova-plugin-fullscreen" source="npm" spec="~1.2.0" />
+	<plugin name="cordova-plugin-native-keyboard" source="npm" spec="~1.6.0" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+	
+	<splash platform="android" qualifier="port-ldpi" src="res/icon/android/KML23.png" />
+	<splash platform="android" qualifier="port-mdpi" src="res/screen/android/KML23.png" />
+	<splash platform="android" qualifier="port-hdpi" src="res/screen/android/KML23.png" />
+	<splash platform="android" qualifier="port-xhdpi" src="res/screen/android/KML23.png" />
+	<icon src="res/icon/android/icon-36-ldpi.png" platform="android" qualifier="ldpi" />
+	<icon src="res/icon/android/icon-48-mdpi.png" platform="android" qualifier="mdpi" />
+	<icon src="res/icon/android/icon-72-hdpi.png" platform="android" qualifier="hdpi" />
+	<icon src="res/icon/android/icon-96-xhdpi.png" platform="android" qualifier="xhdpi" />
+	
+	<splash src="KML23.png" />
+	
+    <platform name="android">
+        <allow-intent href="market:*" />
+		<config-file parent="/manifest/application" target="AndroidManifest.xml">
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
+	    </config-file>
+		<splash platform="android" qualifier="port-ldpi" src="res/icon/android/KML23.png" />
+		<splash platform="android" qualifier="port-mdpi" src="res/screen/android/KML23.png" />
+		<splash platform="android" qualifier="port-hdpi" src="res/screen/android/KML23.png" />
+		<splash platform="android" qualifier="port-xhdpi" src="res/screen/android/KML23.png" />
+		<icon src="res/icon/android/icon-36-ldpi.png" platform="android" qualifier="ldpi" />
+		<icon src="res/icon/android/icon-48-mdpi.png" platform="android" qualifier="mdpi" />
+		<icon src="res/icon/android/icon-72-hdpi.png" platform="android" qualifier="hdpi" />
+		<icon src="res/icon/android/icon-96-xhdpi.png" platform="android" qualifier="xhdpi" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+	
+</widget>
