@@ -3975,9 +3975,9 @@ table {
 }
 
 html {
-    /*overflow: hidden;
+    overflow: hidden;
     -ms-touch-action: pan-y;
-    touch-action: pan-y*/
+    touch-action: pan-y
 }
 
 .ionic-body,
@@ -3997,7 +3997,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    /*overflow: hidden;*/
+    overflow: hidden;
     margin: 0;
     padding: 0;
     color: #000;

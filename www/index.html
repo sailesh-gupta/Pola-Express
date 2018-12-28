@@ -42,7 +42,7 @@
 
 
 	<div class="bar bar-header bar-balanced">
-	<a onclick="toggle_sidebar()" class="button button-clear"><i class="icon ion-android-list"></i></a>
+	<a onClick="toggle_sidebar()" class="button button-clear"><i class="icon ion-android-list"></i></a>
 	<h1 class="title">Book Airport Taxi</h1>
 	<a href="offer.html" class="button button-clear"><i class="icon ion-android-notifications"></i></a>
     </div>
@@ -70,8 +70,11 @@
 				</div>
 	
 				<div id="search_div">
-			
-				
+			<div class = "list" style="text-align:left">
+				<label class="item item-input">
+			<input type="text" class="form-control" name="address" id="address"  placeholder="Enter Your Area / Location">
+			</label>
+			</div>
 				
 				<div class = "list" style="text-align:left">
    <label class = "item item-radio">
@@ -93,31 +96,29 @@
 </div>
 
 <script>
-	$(function() {					
-	$("#group1").change(function(){ // bind a function to the change event
-        if( $(this).is(":checked") ){ // check if the radio is checked
-            var val = $(this).val(); // retrieve the value
-			if(val=="1")
-			{
-			$("#address").attr("placeholder", "Your Pickup Area / Location");
-			}
-        }
-    });
-	
-	$("#group2").change(function(){ // bind a function to the change event
-        if( $(this).is(":checked") ){ // check if the radio is checked
-            var val = $(this).val(); // retrieve the value
-			if(val=="2")
-			{
-			$("#address").attr("placeholder", "Your Drop Area / Location");
-			}
-        }
-    });
-						  });
+	//$(function() {					
+//	$("#group1").change(function(){ // bind a function to the change event
+//        if( $(this).is(":checked") ){ // check if the radio is checked
+//            var val = $(this).val(); // retrieve the value
+//			if(val=="1")
+//			{
+//			$("#address").attr("placeholder", "Your Pickup Area / Location");
+//			}
+//        }
+//    });
+//	
+//	$("#group2").change(function(){ // bind a function to the change event
+//        if( $(this).is(":checked") ){ // check if the radio is checked
+//            var val = $(this).val(); // retrieve the value
+//			if(val=="2")
+//			{
+//			$("#address").attr("placeholder", "Your Drop Area / Location");
+//			}
+//        }
+//    });
+//						  });
 						</script>
-			<label class="item item-input">
-			<input type="text" class="form-control" name="address" id="address"  placeholder="Enter Your Area / Location">
-			</label>
+			
 			
 			 <input type="hidden" class="form-control" name="lat"  id="lat">
 			<input type="hidden" class="form-control" name="lon"  id="lon">
@@ -137,7 +138,15 @@
 						
         
     </div>
-	
+	<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 	
 	<div class="bar bar-footer bar-stable">
 <a href="index.html" class="button button-clear title"><i class="icon ion-home"></i> Home</a>

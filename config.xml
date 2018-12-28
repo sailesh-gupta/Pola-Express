@@ -22,7 +22,6 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
 	<plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
 	<plugin name="cordova-plugin-fullscreen" source="npm" spec="~1.2.0" />
-	<plugin name="cordova-plugin-native-keyboard" source="npm" spec="~1.6.0" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
